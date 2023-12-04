@@ -5,9 +5,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.activity7database.Repository.OfflineRepositorySiswa
+import com.example.activity7database.Repository.RepositorySiswa
 import com.example.activity7database.data.Siswa
 
-class EntryViewModel(private val repositorySiswa: OfflineRepositorySiswa): ViewModel(){
+class EntryViewModel(private val repositorySiswa: RepositorySiswa): ViewModel(){
 
     /**
      * Berisi status Siswa saat ini

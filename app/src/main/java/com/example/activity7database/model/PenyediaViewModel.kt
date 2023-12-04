@@ -1,6 +1,5 @@
 package com.example.activity7database.model
 
-import android.text.Spannable.Factory
 import android.app.Application
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.createSavedStateHandle
