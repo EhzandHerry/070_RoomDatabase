@@ -15,6 +15,7 @@ class EntryViewModel(private val repositorySiswa: OfflineRepositorySiswa): ViewM
     var uiStateSiswa by mutableStateOf(UIStateSiswa())
         private set
 
+    /* fungsi untuk menvalidasi input */
     private fun validasiInput(uiState: DetailSiswa = uiStateSiswa.detailSiswa): Boolean {
         return with(uiState){
             nama.isNotBlank() && alamat.isNotBlank() && telepon.isNotBlank()
@@ -26,6 +27,7 @@ class EntryViewModel(private val repositorySiswa: OfflineRepositorySiswa): ViewM
             UIStateSiswa(detailSiswa = detailSiswa, isEntryvalid = validasiInput(detailSiswa))
     }
 
+    /* Fungsi untuk menvalidasi input */
     suspend fun saveSiswa(){
         if (validasiInput()){
             repositorySiswa.insertSiswa(uiStateSiswa.detailSiswa.toSiswa())
@@ -33,6 +35,9 @@ class EntryViewModel(private val repositorySiswa: OfflineRepositorySiswa): ViewM
     }
 }
 
+/**
+ * Mewakili Status Ui untuk Siswa.
+ */
 data class DetailSiswa(
     val id: Int = 0,
     val nama: String = "",
@@ -45,6 +50,7 @@ data class UIStateSiswa(
     val isEntryvalid: Boolean = false
 )
 
+/* Fungsi untuk mengkonversi data input ke data  dalam tabel sesuai jenis datanya */
 fun DetailSiswa.toSiswa(): Siswa = Siswa(
     id = id,
     nama = nama,
